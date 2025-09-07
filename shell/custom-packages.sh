@@ -19,6 +19,18 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-passwall-zh-cn"
 # 同样是代理相关 但以下2个属于imm仓库内的软件 一般在build24.sh中已经集成 你也可以在此处调整它的去留 若去除组件则使用减号- 若添加则 不使用减号 或者 不处理
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-openclash"
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-homeproxy-zh-cn"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES htop"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES kmod-nft-socket"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES kmod-nft-tproxy"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES kmod-tun"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES wget-ssl"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES ip-full"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES sing-box"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES cfdisk"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES nano-full"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES bash"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES coreutils-nohup"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES jq"
 # VPN
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-tailscale luci-i18n-tailscale-zh-cn"
 # 分区扩容 by sirpdboy 
