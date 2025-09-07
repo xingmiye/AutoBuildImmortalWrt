@@ -34,12 +34,14 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES nano-full"
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES bash"
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES coreutils-nohup"
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES jq"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-kucat luci-i18n-kucat-config-zh-cn"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-poweroffdevice luci-i18n-poweroffdevice-zh-cn"
 # VPN
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-tailscale luci-i18n-tailscale-zh-cn"
 # 分区扩容 by sirpdboy 
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-partexp luci-i18n-partexp-zh-cn"
 # 酷猫主题 by sirpdboy 
-#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-theme-kucat"
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-theme-kucat"
 # 进阶设置 by sirpdboy 
 # 当luci-app-advancedplus插件开启时 需排除冲突项 luci-app-argon-config和luci-i18n-argon-config-zh-cn 减号代表排除
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-advancedplus luci-i18n-advancedplus-zh-cn -luci-app-argon-config -luci-i18n-argon-config-zh-cn"
