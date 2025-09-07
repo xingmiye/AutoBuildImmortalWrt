@@ -101,8 +101,13 @@ uci set dropbear.@dropbear[0].Interface=''
 uci commit
 
 # 设置编译作者信息
-FILE_PATH="/etc/openwrt_release"
-NEW_DESCRIPTION="Packaged by wukongdaily"
-sed -i "s/DISTRIB_DESCRIPTION='[^']*'/DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'/" "$FILE_PATH"
+# FILE_PATH="/etc/openwrt_release"
+# NEW_DESCRIPTION="Packaged by wukongdaily"
+# sed -i "s/DISTRIB_DESCRIPTION='[^']*'/DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'/" "$FILE_PATH"
+sed -i "s|^\(OPENWRT_RELEASE=\"\)|\1JW'D @ |" /usr/lib/os-release
+
+sed -i "s,https://downloads.immortalwrt.org,https://mirrors.pku.edu.cn/immortalwrt,g" "/etc/opkg/distfeeds.conf"
+
+sed -i "s|/bin/ash$|/bin/bash|" /etc/passwd
 
 exit 0
