@@ -196,8 +196,14 @@ if opkg list-installed | grep -q '^luci-app-advancedplus '; then
     sed -i '/\/usr\/bin\/zsh/d' /etc/init.d/advancedplus
 fi
 
+# 更换软件源
 sed -i "s,https://downloads.immortalwrt.org,https://mirrors.pku.edu.cn/immortalwrt,g" "/etc/opkg/distfeeds.conf"
 
+# 更换shell，带历史记录
 sed -i "s|/bin/ash$|/bin/bash|" /etc/passwd
+
+# 改主机名
+uci set system.@system[0].hostname='OpenWrt'
+uci commit system
 
 exit 0
