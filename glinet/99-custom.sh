@@ -1,7 +1,7 @@
 #!/bin/sh
 # 该脚本为immortalwrt首次启动时 运行的脚本 即 /etc/uci-defaults/99-custom.sh 也就是说该文件在路由器内 重启后消失 只运行一次
 # 设置默认防火墙规则，方便虚拟机首次访问 WebUI
-LOGFILE="/etc/config/uci-defaults-log.txt"
+LOGFILE="/etc/uci-defaults-log.txt"
 uci set firewall.@zone[1].input='ACCEPT'
 
 # 设置主机名映射，解决安卓原生 TV 无法联网的问题
@@ -40,10 +40,8 @@ if [ "$enable_pppoe" = "yes" ]; then
     uci set network.wan.peerdns='1'                  
     uci set network.wan.auto='1' 
     echo "PPPoE configuration completed successfully." >> $LOGFILE
-    rm -f $SETTINGS_FILE
 else
     echo "PPPoE is not enabled. Skipping configuration." >> $LOGFILE
-    rm -f $SETTINGS_FILE
 fi
 
 # 若安装了dockerd 则设置docker的防火墙规则
@@ -136,6 +134,8 @@ sed -i "s|/bin/ash$|/bin/bash|" /etc/passwd
 uci set system.@system[0].hostname='OpenWrt'
 uci commit system
 
-# rm -f /etc/config/pppoe-settings
+# 清理编译工作文件
+rm -f /etc/config/pppoe-settings
+rm -f /etc/config/custom_router_ip.txt
 
 exit 0
