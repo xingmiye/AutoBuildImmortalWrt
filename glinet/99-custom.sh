@@ -134,4 +134,6 @@ sed -i "s|/bin/ash$|/bin/bash|" /etc/passwd
 uci set system.@system[0].hostname='OpenWrt'
 uci commit system
 
+rm -f /etc/config/pppoe-settings
+
 exit 0
