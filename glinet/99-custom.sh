@@ -124,8 +124,14 @@ fi
 # sed -i "s/DISTRIB_DESCRIPTION='[^']*'/DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'/" "$FILE_PATH"
 sed -i "s|^\(OPENWRT_RELEASE=\"\)|\1JW'D @ |" /usr/lib/os-release
 
+# 更换软件源
 sed -i "s,https://downloads.immortalwrt.org,https://mirrors.pku.edu.cn/immortalwrt,g" "/etc/opkg/distfeeds.conf"
 
+# 更换shell，带历史记录
 sed -i "s|/bin/ash$|/bin/bash|" /etc/passwd
+
+# 改主机名
+uci set system.@system[0].hostname='OpenWrt'
+uci commit system
 
 exit 0
