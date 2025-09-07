@@ -52,10 +52,10 @@ case "$board_name" in
         ;;
     *)
         # 默认第一个接口为WAN，其余为LAN
-        # wan_ifname=$(echo "$ifnames" | awk '{print $1}')
-        # lan_ifnames=$(echo "$ifnames" | cut -d ' ' -f2-)
-        # echo "Using default mapping: WAN=$wan_ifname LAN=$lan_ifnames" >>"$LOGFILE"
-        # ;;
+        wan_ifname=$(echo "$ifnames" | awk '{print $2}')
+        lan_ifnames=$(echo "$ifnames" | awk '{for(i=1;i<=NF;i++){if(i!=2) printf "%s ", $i}}' | sed 's/ $//')
+        echo "Using default mapping: WAN=$wan_ifname LAN=$lan_ifnames" >>"$LOGFILE"
+        ;;
 esac
 
 # 3. 配置网络
