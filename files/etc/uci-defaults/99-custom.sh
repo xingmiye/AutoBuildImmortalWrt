@@ -196,7 +196,7 @@ if opkg list-installed | grep -q '^luci-app-advancedplus '; then
     sed -i '/\/usr\/bin\/zsh/d' /etc/init.d/advancedplus
 fi
 
-sed -i "s,https://mirrors.vsean.net/openwrt,https://mirrors.pku.edu.cn/immortalwrt,g" "/etc/opkg/distfeeds.conf"
+sed -i "s,https://downloads.immortalwrt.org,https://mirrors.pku.edu.cn/immortalwrt,g" "/etc/opkg/distfeeds.conf"
 
 sed -i "s|/bin/ash$|/bin/bash|" /etc/passwd
 
