@@ -40,8 +40,10 @@ if [ "$enable_pppoe" = "yes" ]; then
     uci set network.wan.peerdns='1'                  
     uci set network.wan.auto='1' 
     echo "PPPoE configuration completed successfully." >> $LOGFILE
+    rm -f $SETTINGS_FILE
 else
     echo "PPPoE is not enabled. Skipping configuration." >> $LOGFILE
+    rm -f $SETTINGS_FILE
 fi
 
 # 若安装了dockerd 则设置docker的防火墙规则
